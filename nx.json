@@ -29,6 +29,9 @@
     "heroes-consumer-e2e": {
       "tags": [],
       "implicitDependencies": ["heroes-consumer"]
+    },
+    "heroes-provider": {
+      "tags": []
     }
   }
 }

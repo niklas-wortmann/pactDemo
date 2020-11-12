@@ -116,6 +116,56 @@
           }
         }
       }
+    },
+    "heroes-provider": {
+      "root": "apps/heroes-provider",
+      "sourceRoot": "apps/heroes-provider/src",
+      "projectType": "application",
+      "prefix": "heroes-provider",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/heroes-provider",
+            "main": "apps/heroes-provider/src/main.ts",
+            "tsConfig": "apps/heroes-provider/tsconfig.app.json",
+            "assets": ["apps/heroes-provider/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/heroes-provider/src/environments/environment.ts",
+                  "with": "apps/heroes-provider/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "heroes-provider:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/heroes-provider/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/heroes-provider/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
