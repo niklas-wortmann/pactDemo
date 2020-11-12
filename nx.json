@@ -1,7 +1,7 @@
 {
   "npmScope": "pact",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "angular.json": "*",
@@ -31,6 +31,9 @@
       "implicitDependencies": ["heroes-consumer"]
     },
     "heroes-provider": {
+      "tags": []
+    },
+    "heroes": {
       "tags": []
     }
   }
